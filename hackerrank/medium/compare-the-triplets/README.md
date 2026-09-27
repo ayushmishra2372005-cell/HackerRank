@@ -1,4 +1,4 @@
-# Simple Array Sum
+# Solve Me First
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -63,73 +63,25 @@ The second line contains <em>3</em> space-separated integers, <em>b[0]</em>, <em
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-27T05:48:24.043Z  
+**Submitted:** 2026-09-27T05:53:54.123Z  
 
 ```cpp
-#include <bits/stdc++.h>
-
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
 using namespace std;
 
-string ltrim(const string &);
-string rtrim(const string &);
-vector<string> split(const string &);
 
 
-int main()
-{
-    int n;
-    cin>>n;
-    int arr[1000];
-    for(int i=0;i<n;i++)
-    {
-        cin>>arr[i];
-    }
-    int sum=0;
-    for(int j=0;j<n;j++ )
-    {
-        sum=sum+arr[j];
-    }
+int main() {
+  int num1, num2;
+  int sum;
+  cin>>num1>>num2;
+  sum=num1+num2;
     cout<<sum;
-    return 0;
-}
-
-string ltrim(const string &str) {
-    string s(str);
-
-    s.erase(
-        s.begin(),
-        find_if(s.begin(), s.end(), not1(ptr_fun<int, int>(isspace)))
-    );
-
-    return s;
-}
-
-string rtrim(const string &str) {
-    string s(str);
-
-    s.erase(
-        find_if(s.rbegin(), s.rend(), not1(ptr_fun<int, int>(isspace))).base(),
-        s.end()
-    );
-
-    return s;
-}
-
-vector<string> split(const string &str) {
-    vector<string> tokens;
-
-    string::size_type start = 0;
-    string::size_type end = 0;
-
-    while ((end = str.find(" ", start)) != string::npos) {
-        tokens.push_back(str.substr(start, end - start));
-
-        start = end + 1;
-    }
-
-    tokens.push_back(str.substr(start));
-
-    return tokens;
+  return 0;
 }
 
 ```
