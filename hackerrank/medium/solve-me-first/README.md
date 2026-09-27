@@ -35,32 +35,28 @@ Returns
 
 ## Solution
 
-**Language:** Java  
+**Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-27T05:28:14.556Z  
+**Submitted:** 2026-09-27T05:53:51.900Z  
 
-```java
-import java.util.*;
+```cpp
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
 
-public class Solution {
 
-    // static int solveMeFirst(int a, int b) {
-    //   // Hint: Type return a+b; below 
-	// }
 
-  
-   public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int a;
-        a = in.nextInt();
-        int b;
-        b = in.nextInt();
-        in.close();
-        int sum;
-        sum = a+b;
-        System.out.println(sum);
-	}
+int main() {
+  int num1, num2;
+  int sum;
+  cin>>num1>>num2;
+  sum=num1+num2;
+    cout<<sum;
+  return 0;
 }
 
 ```
