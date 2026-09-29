@@ -1,4 +1,4 @@
-# Mini-Max Sum
+# Birthday Cake Candles
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Easy-green)
 
@@ -40,30 +40,35 @@ The second line contains $n$ space-separated integers, where each integer $i$ de
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-29T15:39:04.770Z  
+**Submitted:** 2026-09-29T15:52:25.563Z  
 
 ```cpp
-#include<iostream>
-#include<algorithm>
+#include <bits/stdc++.h>
 using namespace std;
-
-int main(){
-    int size = 5;
-    int arr[size];
-    for (int i=0; i<size; i++){
-        cin>>arr[i];
+int main()
+{
+    int n;
+    int a[n];
+    cin>>n;
+    for(int i=0;i<n;i++)
+    {
+        cin>>a[n];
     }
-    int n = sizeof(arr)/ sizeof(arr[0]);
-    sort(arr, arr+n);
-    
-    long long min = 0, max = 0;
-    for (int i=0; i<size-1; i++){
-        min += arr[i];
+    int count=1;
+    int max=a[0];
+    for(int i=0;i<n;i++)
+    {
+        if(a[i]>max)
+        {
+            max=a[i];
+            count=1;
+        }
+        else if(a[i]==max)
+        {
+            count++;
+        }
     }
-    for (int i=1; i<size;i++){
-        max+=arr[i];
-    }
-    cout<<min<<" "<<max;
+    cout<<count;
     return 0;
 }
 
