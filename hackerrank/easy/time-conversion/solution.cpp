@@ -1,28 +1,23 @@
 #include <bits/stdc++.h>
+#include<string>
 using namespace std;
 int main()
 {
-    int n;
-    cin>>n;
-    int a[n];
-    for(int i=0;i<n;i++)
+    string s;
+    cin>>s;
+    int hour=stoi(s.substr(0,2));
+    string a=s.substr(8,2);
+    if(a=="AM"&&hour==12)
     {
-        cin>>a[i];
+        s[0]='0';s[1]='0';
     }
-    int count=1;
-    int max=a[0];
-    for(int i=1;i<n;i++)
+    else if(a=="PM"&&hour!=12)
     {
-        if(a[i]>max)
-        {
-            max=a[i];
-            count=1;
-        }
-        else if(a[i]==max)
-        {
-            count++;
-        }
+        hour=hour+12;
+        string n=to_string(hour);
+        s[0]=n[0];
+        s[1]=n[1];   
     }
-    cout<<count;
+    cout<<s.substr(0,8)<<endl;
     return 0;
 }
