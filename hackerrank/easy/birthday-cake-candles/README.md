@@ -40,7 +40,7 @@ The second line contains $n$ space-separated integers, where each integer $i$ de
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-29T15:52:25.563Z  
+**Submitted:** 2026-09-29T15:54:41.170Z  
 
 ```cpp
 #include <bits/stdc++.h>
@@ -48,15 +48,15 @@ using namespace std;
 int main()
 {
     int n;
-    int a[n];
     cin>>n;
+    int a[n];
     for(int i=0;i<n;i++)
     {
-        cin>>a[n];
+        cin>>a[i];
     }
     int count=1;
     int max=a[0];
-    for(int i=0;i<n;i++)
+    for(int i=1;i<n;i++)
     {
         if(a[i]>max)
         {
