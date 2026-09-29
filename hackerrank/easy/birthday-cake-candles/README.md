@@ -40,7 +40,7 @@ The second line contains $n$ space-separated integers, where each integer $i$ de
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-29T15:54:41.170Z  
+**Submitted:** 2026-09-29T15:54:50.510Z  
 
 ```cpp
 #include <bits/stdc++.h>
