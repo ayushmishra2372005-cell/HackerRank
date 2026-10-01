@@ -1,46 +1,32 @@
 #include <bits/stdc++.h>
+
 using namespace std;
 int main()
 {
-    int n,m;
-    cin>>n>>m;
+    int n;
+    cin>>n;
     int a[n];
-    int b[m];
-    int count=0;
     for(int i=0;i<n;i++)
     {
         cin>>a[i];
     }
-    for(int i=0;i<m;i++)
+    int high=a[0];
+    int low=a[0];
+    int high_count=0;
+    int low_count=0;
+    for(int i=0;i<n;i++)
     {
-        cin>>b[i];
-    }
-    for(int x=1;x<=100;x++)
-    {
-        bool fits_condition_1 = true;
-        bool fits_condition_2 = true;
-        for(int i = 0; i < n; i++)
+        if(a[i]>high)
         {
-            if(x % a[i] != 0)
-            {
-                fits_condition_1 = false;
-                break;
-            }
+            high=a[i];
+            high_count++;
         }
-        for(int i = 0; i < m; i++)
+        else if(a[i]<low)
         {
-            if(b[i]%x != 0)
-            {
-                fits_condition_2 = false;
-                break;
-            }
-        }
-        if(fits_condition_1 && fits_condition_2)
-        {
-            count++;
+            low=a[i];
+            low_count++;
         }
     }
-    
-    cout << count << endl;
+    cout<<high_count<<" "<<low_count;
     return 0;
 }
