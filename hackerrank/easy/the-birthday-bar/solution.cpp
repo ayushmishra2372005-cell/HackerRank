@@ -10,23 +10,21 @@ int main()
     {
         cin>>a[i];
     }
-    int high=a[0];
-    int low=a[0];
-    int high_count=0;
-    int low_count=0;
+    int d,m;
+    cin>>d>>m;
+    int count=0;
     for(int i=0;i<n;i++)
     {
-        if(a[i]>high)
+        int c=0;
+        for(int j=0;j<m;j++)
         {
-            high=a[i];
-            high_count++;
+            c=c+a[i+j];
         }
-        else if(a[i]<low)
+        if(c==d)
         {
-            low=a[i];
-            low_count++;
+            count++;
         }
     }
-    cout<<high_count<<" "<<low_count;
+    cout<<count;
     return 0;
 }
