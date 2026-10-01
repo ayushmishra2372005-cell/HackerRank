@@ -1,4 +1,4 @@
-# Subarray Division
+# Divisible Sum Pairs
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Easy-green)
 
@@ -46,7 +46,7 @@ The second line contains $n$ space-separated integers, each a value of $arr[i]$.
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-01T17:54:44.588Z  
+**Submitted:** 2026-10-01T18:00:58.341Z  
 
 ```cpp
 #include <bits/stdc++.h>
@@ -54,31 +54,27 @@ The second line contains $n$ space-separated integers, each a value of $arr[i]$.
 using namespace std;
 int main()
 {
-    int n;
-    cin>>n;
+    int n,k;
+    cin>>n>>k;
     int a[n];
     for(int i=0;i<n;i++)
     {
         cin>>a[i];
     }
-    int d,m;
-    cin>>d>>m;
     int count=0;
     for(int i=0;i<n;i++)
     {
-        int c=0;
-        for(int j=0;j<m;j++)
+        for(int j=i+1;j<n;j++)
         {
-            c=c+a[i+j];
-        }
-        if(c==d)
-        {
-            count++;
+            if((a[i]+a[j])%k==0)
+            {
+                count++;
+            }
         }
     }
     cout<<count;
     return 0;
-}
+} 
 
 ```
 
