@@ -1,4 +1,4 @@
-# Number Line Jumps
+# Between Two Sets
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Easy-green)
 
@@ -54,24 +54,53 @@ The third line contains $m$ distinct space-separated integers $b[j]$ where $0 \l
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-01T17:08:30.279Z  
+**Submitted:** 2026-10-01T17:23:13.808Z  
 
 ```cpp
 #include <bits/stdc++.h>
 using namespace std;
-
-int main() {
-    int x1, v1, x2, v2;
-    cin >> x1 >> v1 >> x2 >> v2;
-    if (v1 > v2 && (x2 - x1) % (v1 - v2) == 0) 
+int main()
+{
+    int n,m;
+    cin>>n>>m;
+    int a[n];
+    int b[m];
+    int count=0;
+    for(int i=0;i<n;i++)
     {
-        cout << "YES" << endl;
-    } 
-    else 
+        cin>>a[i];
+    }
+    for(int i=0;i<m;i++)
     {
-        cout << "NO" << endl;
+        cin>>b[i];
+    }
+    for(int x=1;x<=100;x++)
+    {
+        bool fits_condition_1 = true;
+        bool fits_condition_2 = true;
+        for(int i = 0; i < n; i++)
+        {
+            if(x % a[i] != 0)
+            {
+                fits_condition_1 = false;
+                break;
+            }
+        }
+        for(int i = 0; i < m; i++)
+        {
+            if(b[i]%x != 0)
+            {
+                fits_condition_2 = false;
+                break;
+            }
+        }
+        if(fits_condition_1 && fits_condition_2)
+        {
+            count++;
+        }
     }
     
+    cout << count << endl;
     return 0;
 }
 
