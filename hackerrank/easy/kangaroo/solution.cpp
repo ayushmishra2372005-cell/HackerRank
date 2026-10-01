@@ -1,38 +1,17 @@
 #include <bits/stdc++.h>
-
 using namespace std;
-int main()
-{
-    int s,t;
-    cin>>s>>t;
-    int a,b;
-    cin>>a>>b;
-    int m,n;
-    cin>>m>>n;
-    int ap[m];
-    int og[n];
-    int apple=0;
-    int orange=0;
-    for(int i=0;i<m;i++)
+
+int main() {
+    int x1, v1, x2, v2;
+    cin >> x1 >> v1 >> x2 >> v2;
+    if (v1 > v2 && (x2 - x1) % (v1 - v2) == 0) 
     {
-        cin>>ap[i];
-        int land=a+ap[i];
-        if(s<=land&&land<=t)
-        {
-            apple++;
-        }
-    }
-    for(int i=0;i<n;i++)
+        cout << "YES" << endl;
+    } 
+    else 
     {
-        cin>>og[i];
-        int land=b+og[i];
-        if(s<=land&&land<=t)
-        {
-            orange++;
-        }
+        cout << "NO" << endl;
     }
-    cout<<apple<<endl;
-    cout<<orange;
+    
     return 0;
 }
-
