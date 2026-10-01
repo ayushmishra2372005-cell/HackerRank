@@ -1,4 +1,4 @@
-# Grading Students
+# Apple and Orange
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Easy-green)
 
@@ -60,42 +60,47 @@ Print two integers on two different lines:
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-01T15:27:43.991Z  
+**Submitted:** 2026-10-01T16:03:49.401Z  
 
 ```cpp
 #include <bits/stdc++.h>
-using namespace std;
 
+using namespace std;
 int main()
 {
-    int n;
-    cin >> n;
-    int a[n];
-    for(int i = 0; i < n; i++)
+    int s,t;
+    cin>>s>>t;
+    int a,b;
+    cin>>a>>b;
+    int m,n;
+    cin>>m>>n;
+    int ap[m];
+    int og[n];
+    int apple=0;
+    int orange=0;
+    for(int i=0;i<m;i++)
     {
-        cin >> a[i];
-    }
-    for(int i = 0; i < n; i++)
-    {
-        if(a[i] < 38)
+        cin>>ap[i];
+        int land=a+ap[i];
+        if(s<=land&&land<=t)
         {
-            a[i] = a[i];
-        }
-        else 
-        {
-            int next_multiple = ((a[i] / 5) + 1) * 5;
-            if(next_multiple - a[i] < 3)
-            {
-                a[i] = next_multiple;
-            }
+            apple++;
         }
     }
-    for(int i = 0; i < n; i++)
+    for(int i=0;i<n;i++)
     {
-        cout << a[i] << endl;
+        cin>>og[i];
+        int land=b+og[i];
+        if(s<=land&&land<=t)
+        {
+            orange++;
+        }
     }
+    cout<<apple<<endl;
+    cout<<orange;
     return 0;
 }
+
 
 ```
 
