@@ -1,4 +1,4 @@
-# Drawing Book
+# Counting Valleys
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Easy-green)
 
@@ -48,28 +48,36 @@ The second line contains a single string $path$, of $steps$ characters that desc
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-02T14:54:52.881Z  
+**Submitted:** 2026-10-02T15:03:52.351Z  
 
 ```cpp
 #include <bits/stdc++.h>
-
+#include<strings.h>
 using namespace std;
 int main()
 {
-    int n;
-    int p;
-    cin>>n;
-    cin>>p;
-    int count=p/2;
-    int count1=(n/2)-(p/2);
-    if(count1<count)
+    int steps;
+    cin>>steps;
+    string path;
+    cin>>path;
+    int el=0;
+    int val=0;
+    for(int i=0;i<steps;i++)
     {
-        cout<<count1;
+        if(path[i]=='U')
+        {
+            el++;
+            if(el==0)
+            {
+                val++;
+            }
+        }
+        else if(path[i]=='D')
+        {
+            el--;
+        }
     }
-    else 
-    {
-        cout<<count;
-    }
+    cout<<val;
     return 0;
 }
 
