@@ -43,7 +43,7 @@ The second line contains $n$ space-separated integers, $ar[i]$, the colors of th
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-02T14:25:13.569Z  
+**Submitted:** 2026-10-02T14:25:53.608Z  
 
 ```cpp
 #include <bits/stdc++.h>
