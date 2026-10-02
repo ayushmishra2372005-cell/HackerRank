@@ -1,4 +1,4 @@
-# Sales by Match
+# Drawing Book
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Easy-green)
 
@@ -51,7 +51,7 @@ The second line contains an integer, $p$, the page to turn to.
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-02T14:25:59.729Z  
+**Submitted:** 2026-10-02T14:54:48.187Z  
 
 ```cpp
 #include <bits/stdc++.h>
@@ -60,31 +60,20 @@ using namespace std;
 int main()
 {
     int n;
+    int p;
     cin>>n;
-    int a[n];
-    for(int i=0;i<n;i++)
+    cin>>p;
+    int count=p/2;
+    int count1=(n/2)-(p/2);
+    if(count1<count)
     {
-        cin>>a[i];
+        cout<<count1;
     }
-    int count=0;
-    for(int i=0;i<n;i++)
+    else 
     {
-        if(a[i]==-1)
-        {
-            continue;
-        }
-        for(int j=i+1;j<n;j++)
-        {
-            if(a[i]==a[j])
-            {
-                count++;
-                a[i]=-1;
-                a[j]=-1;
-                break;
-            }
-        }
-    } 
-    cout<<count;  
+        cout<<count;
+    }
+    return 0;
 }
 
 ```
