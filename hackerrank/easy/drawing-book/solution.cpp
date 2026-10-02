@@ -4,29 +4,18 @@ using namespace std;
 int main()
 {
     int n;
+    int p;
     cin>>n;
-    int a[n];
-    for(int i=0;i<n;i++)
+    cin>>p;
+    int count=p/2;
+    int count1=(n/2)-(p/2);
+    if(count1<count)
     {
-        cin>>a[i];
+        cout<<count1;
     }
-    int count=0;
-    for(int i=0;i<n;i++)
+    else 
     {
-        if(a[i]==-1)
-        {
-            continue;
-        }
-        for(int j=i+1;j<n;j++)
-        {
-            if(a[i]==a[j])
-            {
-                count++;
-                a[i]=-1;
-                a[j]=-1;
-                break;
-            }
-        }
-    } 
-    cout<<count;  
+        cout<<count;
+    }
+    return 0;
 }
