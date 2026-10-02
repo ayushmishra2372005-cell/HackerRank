@@ -1,32 +1,36 @@
 #include <bits/stdc++.h>
+
 using namespace std;
 int main()
 {
-    int n;
-    cin>>n;
-    if(n==1918)
+    int n,m;
+    cin>>n>>m;
+    int a[n];
+    for(int i=0;i<n;i++)
     {
-        cout<<"26.09.1918";
+        cin>>a[i];
     }
-    else if(n<1918)
+    int charge;
+    cin>>charge;
+    int cost=0;
+    for(int i=0;i<n;i++)
     {
-        if(n%4==0)
+        if(i==m)
         {
-            cout<<"12.09."<<n;
+            cost=cost;
         }
         else 
         {
-            cout<<"13.09."<<n;
+            cost=cost+a[i];
         }
     }
-    else {
-    if((n%4==0&&n%100!=0)||n%400==0)
+    int actual=cost/2;
+    if(actual==charge)
     {
-        cout<<"12.09."<<n;
+        cout<<"Bon Appetit";
     }
     else 
     {
-        cout<<"13.09."<<n;
-    }
+        cout<<charge-actual;
     }
 }
