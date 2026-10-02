@@ -1,4 +1,4 @@
-# Migratory Birds
+# Day of the Programmer
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Easy-green)
 
@@ -42,7 +42,7 @@ Print the full date of *Day of the Programmer* during year $y$ in the format `dd
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-02T06:40:47.230Z  
+**Submitted:** 2026-10-02T06:58:10.217Z  
 
 ```cpp
 #include <bits/stdc++.h>
@@ -51,60 +51,31 @@ int main()
 {
     int n;
     cin>>n;
-    int a[n];
-    for(int i=0;i<n;i++)
+    if(n==1918)
     {
-        cin>>a[i];
+        cout<<"26.09.1918";
     }
-    int count1=0;
-    int count2=0;
-    int count3=0;
-    int count4=0;
-    int count5=0;
-    for(int i=0;i<n;i++)
+    else if(n<1918)
     {
-        if(a[i]==1)
+        if(n%4==0)
         {
-            count1++;
+            cout<<"12.09."<<n;
         }
-        else if(a[i]==2)
+        else 
         {
-            count2++;
-        }
-        else if(a[i]==3)
-        {
-            count3++;
-        }
-        else if(a[i]==4)
-        {
-            count4++;
-        }
-        else
-        {
-            count5++;
+            cout<<"13.09."<<n;
         }
     }
-    if(count1>=count2&&count1>=count3&&count1>=count4&&count1>=count5)
+    else {
+    if((n%4==0&&n%100!=0)||n%400==0)
     {
-        cout<<"1";
+        cout<<"12.09."<<n;
     }
-    if(count1<count2&&count2>=count3&&count2>=count4&&count2>=count5)
+    else 
     {
-        cout<<"2";
+        cout<<"13.09."<<n;
     }
-    if(count3>count2&&count1<count3&&count3>=count4&&count3>=count5)
-    {
-        cout<<"3";
     }
-    if(count4>count2&&count4>count3&&count1<count4&&count4>=count5)
-    {
-        cout<<"4";
-    }
-    if(count5>count1&&count5>count2&&count5>count3&&count5>count4)
-    {
-        cout<<"5";
-    }
-    return 0;
 }
 
 ```
