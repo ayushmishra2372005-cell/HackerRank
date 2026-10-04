@@ -1,4 +1,4 @@
-# The Hurdle Race
+# Designer PDF Viewer
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Hard-red)
 
@@ -47,39 +47,45 @@ The second line contains a single word consisting of lowercase English alphabeti
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-04T13:55:09.122Z  
+**Submitted:** 2026-10-04T14:31:57.379Z  
 
 ```cpp
 #include <bits/stdc++.h>
+#include <algorithm>
 using namespace std;
+
 int main()
 {
-    int n;
-    cin>>n;
-    int a;
-    cin>>a;
-    int b[n];
-    for(int i=0;i<n;i++)
+    // Fast I/O to help pass strict time limit thresholds
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int a[26];
+    for(int i = 0; i < 26; i++)
     {
-        cin>>b[i];
+        cin >> a[i];
     }
-    int max=0;
-    for(int i=0;i<n;i++)
+    
+    string z;
+    cin >> z;
+    int len = z.length();
+    
+    int maxa = 0; 
+    
+    // Optimized Loop: Replaces your 26 if-else blocks with 1 mathematical operation
+    for(int i = 0; i < len; i++)
     {
-        if(b[i]>max)
+        // Directly maps 'a'->0, 'b'->1, ... 'z'->25 in O(1) constant time
+        int index = z[i] - 'a'; 
+        
+        if(a[index] > maxa)
         {
-            max=b[i];
+            maxa = a[index];
         }
     }
-    int dose=max-a;
-    if(dose>0)
-    {
-        cout<<dose;
-    }
-    else if(dose<0)
-    {
-        cout<<"0";
-    }
+    
+    int print = len * maxa;
+    cout << print << "\n";
     return 0;
 }
 
