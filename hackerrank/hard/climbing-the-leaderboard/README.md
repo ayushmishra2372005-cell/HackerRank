@@ -1,4 +1,4 @@
-# Forming a Magic Square
+# Climbing the Leaderboard
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Hard-red)
 
@@ -60,47 +60,53 @@ For $60\%$ of the maximum score:
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-04T13:27:01.403Z  
+**Submitted:** 2026-10-04T13:40:52.125Z  
 
 ```cpp
 #include <bits/stdc++.h>
-
 using namespace std;
+
 int main()
 {
-    int a[3][3];
-    for(int i=0;i<3;i++)
+    int n;
+    cin >> n;
+    int a[n];
+    for(int i = 0; i < n; i++)
     {
-        for(int j=0;j<3;j++)
+        cin >> a[i];
+    }
+    
+    int b;
+    cin >> b;
+    int c[b];
+    for(int i = 0; i < b; i++)
+    {
+        cin >> c[i];
+    }
+    
+    int pos = 0;
+    int unique[n];
+    unique[pos++] = a[0];
+    
+    // FIXED: Start loop from i = 1 and check dynamic index positions (i vs i-1)
+    for(int i = 1; i < n; i++)
+    {
+        if(a[i] != a[i - 1])
         {
-        cin>>a[i][j];
+            unique[pos++] = a[i];
         }
     }
-    int magic[8][9] =
-       {{8, 1, 6, 3, 5, 7, 4, 9, 2},
-        {6, 1, 8, 7, 5, 3, 2, 9, 4},
-        {4, 9, 2, 3, 5, 7, 8, 1, 6},
-        {2, 9, 4, 7, 5, 3, 6, 1, 8},
-        {8, 3, 4, 1, 5, 9, 6, 7, 2},
-        {4, 3, 8, 9, 5, 1, 2, 7, 6},
-        {6, 7, 2, 1, 5, 9, 8, 3, 4},
-        {2, 7, 6, 9, 5, 1, 4, 3, 8}};
-    int min=999;
-    for(int i=0;i<8;i++)
+    
+    int j = pos - 1;
+    for(int i = 0; i < b; i++)
     {
-        int current=0;
-            for(int j = 0; j < 9; j++)
-            {
-                int row = j / 3;
-            int col = j % 3;
-            current += abs(a[row][col] - magic[i][j]);
-            }
-        if(current<min)
+        while(j >= 0 && c[i] >= unique[j])
         {
-            min=current;
+            j--;
         }
+        cout << (j + 1) + 1 << endl;
     }
-    cout<<min<<endl;
+    
     return 0;
 }
 
