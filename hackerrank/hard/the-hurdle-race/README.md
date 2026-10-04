@@ -42,7 +42,7 @@ The second line contains $n$ space-separated integers $height[i]$ where $0 \le i
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-04T13:54:33.112Z  
+**Submitted:** 2026-10-04T13:54:50.121Z  
 
 ```cpp
 #include <bits/stdc++.h>
