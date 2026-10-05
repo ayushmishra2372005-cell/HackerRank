@@ -2,29 +2,29 @@
 using namespace std;
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    int a;
+    cin >> a;
     
-    int t;
-    cin >> t;
-    while (t--) {
-        int n, k;
-        cin >> n >> k;
+    for (int i = 0; i < a; i++) {
+        int n;
+        cin >> n;
+        int k;
+        cin >> k;
         
         int count = 0;
-        for (int i = 0; i < n; i++) {
-            int x;
-            cin >> x;
-            if (x > 0) {
+        for (int j = 0; j < n; j++) { // Fixed: Changed inner variable 'i' to 'j'
+            int val;
+            cin >> val;
+            if (val <= 0) {          // Fixed: On-time/early students are <= 0
                 count++;
             }
         }
-        
         if (count < k) {
-            cout << "YES\n";
+            cout << "YES" << endl;
         } else {
-            cout << "NO\n";
+            cout << "NO" << endl;
         }
     }
     return 0;
 }
+
