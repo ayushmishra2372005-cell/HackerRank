@@ -1,33 +1,16 @@
-#include <iostream>
-#include <cmath>
+#include <bits/stdc++.h>
 using namespace std;
-
 int main()
 {
-    int a, b, c;
-    cin >> a >> b >> c;
-    int count = 0;
-    
-    for (int i = a; i <= b; i++)
+    int n;
+    cin>>n;
+    int like=0;
+    int a=5;
+    for(int i=0;i<n;i++)
     {
-        // Use a temporary variable so we don't accidentally modify 'i'
-        int temp = i; 
-        int reverse = 0;
-        
-        // This loop extracts ALL digits of the current number 'temp'
-        while (temp > 0) 
-        {
-            reverse = (reverse * 10) + (temp % 10);
-            temp /= 10;
-        }
-        
-        // Fixed: Check the difference between the current day 'i' and its 'reverse'
-        int d = abs(i - reverse);
-        if (d % c == 0)
-        {
-            count++;
-        }
+        int like1=a/2;
+        like=like+like1;
+        a=like1*3;   
     }
-    cout << count << endl;
-    return 0;
+    cout<<like;
 }
