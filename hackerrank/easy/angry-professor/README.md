@@ -55,39 +55,39 @@ The second line contains $n$ space-separated integers ($a[1], a[2], \ldots, a[n]
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-05T14:02:27.547Z  
+**Submitted:** 2026-10-05T14:00:12.013Z  
 
 ```cpp
 #include <iostream>
 using namespace std;
 
 int main() {
-    int a;
-    cin >> a;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
     
-    for (int i = 0; i < a; i++) {
-        int n;
-        cin >> n;
-        int k;
-        cin >> k;
+    int t;
+    cin >> t;
+    while (t--) {
+        int n, k;
+        cin >> n >> k;
         
         int count = 0;
-        for (int j = 0; j < n; j++) { // Fixed: Changed inner variable 'i' to 'j'
-            int val;
-            cin >> val;
-            if (val <= 0) {          // Fixed: On-time/early students are <= 0
+        for (int i = 0; i < n; i++) {
+            int x;
+            cin >> x;
+            if (x > 0) {
                 count++;
             }
         }
+        
         if (count < k) {
-            cout << "YES" << endl;
+            cout << "YES\n";
         } else {
-            cout << "NO" << endl;
+            cout << "NO\n";
         }
     }
     return 0;
 }
-
 
 ```
 
