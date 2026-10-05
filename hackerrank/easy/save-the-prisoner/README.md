@@ -1,4 +1,4 @@
-# Viral Advertising
+# Save the Prisoner!
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Easy-green)
 
@@ -55,24 +55,29 @@ The next $t$ lines each contain $3$ space-separated integers:
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-05T14:42:59.071Z  
+**Submitted:** 2026-10-05T14:57:50.351Z  
 
 ```cpp
 #include <bits/stdc++.h>
+
 using namespace std;
 int main()
 {
-    int n;
-    cin>>n;
-    int like=0;
-    int a=5;
-    for(int i=0;i<n;i++)
+    int t;
+    cin>>t;
+    for(int i=0;i<t;i++)
     {
-        int like1=a/2;
-        like=like+like1;
-        a=like1*3;   
+        int n,m,s;
+        cin>>n>>m>>s;
+        int a[n];
+            int target=(s+m-1)%n;
+        if(target==0)
+        {
+            target=n;
+        }
+        cout<<target<<endl;
     }
-    cout<<like;
+    return 0;
 }
 
 ```
