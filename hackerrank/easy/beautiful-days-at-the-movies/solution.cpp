@@ -1,30 +1,33 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 
-int main() {
-    int a;
-    cin >> a;
+int main()
+{
+    int a, b, c;
+    cin >> a >> b >> c;
+    int count = 0;
     
-    for (int i = 0; i < a; i++) {
-        int n;
-        cin >> n;
-        int k;
-        cin >> k;
+    for (int i = a; i <= b; i++)
+    {
+        // Use a temporary variable so we don't accidentally modify 'i'
+        int temp = i; 
+        int reverse = 0;
         
-        int count = 0;
-        for (int j = 0; j < n; j++) { // Fixed: Changed inner variable 'i' to 'j'
-            int val;
-            cin >> val;
-            if (val <= 0) {          // Fixed: On-time/early students are <= 0
-                count++;
-            }
+        // This loop extracts ALL digits of the current number 'temp'
+        while (temp > 0) 
+        {
+            reverse = (reverse * 10) + (temp % 10);
+            temp /= 10;
         }
-        if (count < k) {
-            cout << "YES" << endl;
-        } else {
-            cout << "NO" << endl;
+        
+        // Fixed: Check the difference between the current day 'i' and its 'reverse'
+        int d = abs(i - reverse);
+        if (d % c == 0)
+        {
+            count++;
         }
     }
+    cout << count << endl;
     return 0;
 }
-
