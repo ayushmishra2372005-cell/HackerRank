@@ -1,36 +1,27 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
-
 int main()
 {
-    int n, k;
-    cin >> n >> k;
-    
-    vector<int> a(n);
-    for(int i = 0; i < n; i++)
+    int t;
+    cin>>t;
+    for(int i=0;i<t;i++)
     {
-        cin >> a[i];
-    }
-    
-    int e = 100;
-    int curr = 0; // Tracks our current cloud position, starting at 0
-    
-    do {
-        // 1. Jump forward by k steps circularly
-        curr = (curr + k) % n;
-        
-        // 2. Pay 1 energy unit for the jump
-        e = e - 1;
-        
-        // 3. Pay 2 extra energy units if it's a thunderhead cloud
-        if (a[curr] == 1)
+        int o;
+        cin>>o;
+        int count=0;
+        for(int j=o;j>0;j/=10)
         {
-            e = e - 2;
+            int d=j%10;
+            if(d==0||o%d!=0)
+            {
+                continue;
+            }
+            else 
+            {
+                count++;
+            }
         }
-        
-    } while (curr != 0); // Keep jumping until we return to the start (cloud 0)
-    
-    cout << e << endl;
+        cout<<count<<endl;
+    }
     return 0;
 }
