@@ -1,4 +1,4 @@
-# Extra Long Factorials
+# Circular Array Rotation
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -56,40 +56,49 @@ The third line contains an integer $k$, the number of operations.
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-06T14:02:16.396Z  
+**Submitted:** 2026-10-07T14:47:10.600Z  
 
 ```cpp
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
-
-int main() {
-    int n;
-    cin >> n;
-    
-    vector<int> result;
-    result.push_back(1); // Start with 1
-    
-    for (int i = 2; i <= n; i++) {
-        int carry = 0;
-        // Multiply each digit in the array by the current number 'i'
-        for (int j = 0; j < result.size(); j++) {
-            int prod = result[j] * i + carry;
-            result[j] = prod % 10; // Store the last digit
-            carry = prod / 10;     // Carry the rest forward
-        }
-        // If there's a carry left over, expand the array
-        while (carry > 0) {
-            result.push_back(carry % 10);
-            carry /= 10;
-        }
+int main()
+{
+    int a,b,c;
+    cin>>a>>b>>c;
+    vector<int >d(a);
+    for(int i=0;i<a;i++)
+    {
+        cin>>d[i];
     }
-    
-    // Print the digits in reverse order
-    for (int i = result.size() - 1; i >= 0; i--) {
-        cout << result[i];
+    vector<int>e(c);
+    for(int i=0;i<c;i++)
+    {
+        cin>>e[i];
     }
-    cout << endl;
+    b=b%a;
+    for(int i=0;i<a/2;i++)
+    {
+        int temp=d[i];
+        d[i]=d[a-1-i];
+        d[a-1-i]=temp;
+    }
+    for(int i=0;i<b/2;i++)
+    {
+        int temp=d[i];
+        d[i]=d[b-1-i];
+        d[b-1-i]=temp;
+    }
+    int remaining = a - b;
+    for(int i = 0; i < remaining / 2; i++)
+    {
+        int temp = d[b + i];
+        d[b + i] = d[a - 1 - i];
+        d[a - 1 - i] = temp;
+    }
+    for(int i=0;i<c;i++)
+    {
+        cout<<d[e[i]]<<endl;
+    }
     return 0;
 }
 
