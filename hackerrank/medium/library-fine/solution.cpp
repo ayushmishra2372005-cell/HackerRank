@@ -1,30 +1,24 @@
-#include <bits/stdc++.h>
-using namespace std;
-
-int main()
-{
-    int t;
-    cin >> t;
-    for(int i = 0; i < t; i++)
-    {
-        int a, b;
-        cin >> a >> b;
-        int count = 0;
-        
-        // Fixed: Start 'j' at the square root of 'a' and stop at the square root of 'b'
-        // This avoids calculating unnecessary squares and runs instantly!
-        int start = sqrt(a);
-        int end = sqrt(b);
-        
-        for(int j = start; j <= end; j++)
-        {
-            int n = j * j;
-            if(n >= a && n <= b)
-            {
-                count++;
-            }
-        }
-        cout << count << endl;
-    }
-    return 0;
+        if (b > e)
+        p = 10000; 
+    }
+    {
+    else if (c == f)
+        {
+            // Fixed: Same year, but returned in a later month
+            int temp = b - e;
+        }
+        else if (b == e)
+            p = temp * 500; // Fixed: Removed 'int' so it updates the outer 'p'
+        {
+            if (a > d)
+            {
+                // Fixed: Same year, same month, but returned on a later day
+                int temp = a - d;
+                p = temp * 15; // Fixed: Removed 'int' so it updates the outer 'p'
+            }
+        }
+    }
+    
+    cout << p << endl;
+    return 0;
 }
