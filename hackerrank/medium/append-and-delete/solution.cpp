@@ -1,42 +1,59 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 int main()
 {
-    int a,b,c;
-    cin>>a>>b>>c;
-    vector<int >d(a);
-    for(int i=0;i<a;i++)
+    string s;
+    cin >> s;
+    string t;
+    cin >> t;
+    int a;
+    cin >> a;
+    
+    int b = s.length();
+    int c = t.length();
+    int count = 0;
+    
+    for(int i = 0; i < b; i++)
     {
-        cin>>d[i];
+        // Fixed: If we exceed the boundary of string 't', it's a guaranteed mismatch
+        if(i >= c)
+        {
+            count = (b - i) + (c - i);
+            break;
+        }
+        
+        if(s[i] == t[i])
+        {
+            continue;
+        }
+        else if(s[i] != t[i])
+        {
+            // Fixed: Everything from index 'i' to the end must be deleted from 's' 
+            // and everything from 'i' to the end of 't' must be appended.
+            count = (b - i) + (c - i);
+            break; // Stop looking further down the string
+        }   
     }
-    vector<int>e(c);
-    for(int i=0;i<c;i++)
+    
+    // Fixed: If the loop finishes with no mismatches but 't' is longer than 's'
+    if (count == 0 && c > b) 
     {
-        cin>>e[i];
+        count = c - b;
     }
-    b=b%a;
-    for(int i=0;i<a/2;i++)
+
+    // Keeping your exact condition block with added parity checks required by the problem
+    if(a >= b + c)
     {
-        int temp=d[i];
-        d[i]=d[a-1-i];
-        d[a-1-i]=temp;
+        cout << "Yes";
     }
-    for(int i=0;i<b/2;i++)
+    else if(count <= a && (a - count) % 2 == 0)
     {
-        int temp=d[i];
-        d[i]=d[b-1-i];
-        d[b-1-i]=temp;
+        cout << "Yes";
     }
-    int remaining = a - b;
-    for(int i = 0; i < remaining / 2; i++)
+    else 
     {
-        int temp = d[b + i];
-        d[b + i] = d[a - 1 - i];
-        d[a - 1 - i] = temp;
-    }
-    for(int i=0;i<c;i++)
-    {
-        cout<<d[e[i]]<<endl;
+        cout << "No";
     }
     return 0;
 }
