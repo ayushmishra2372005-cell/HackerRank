@@ -1,4 +1,4 @@
-# Repeated String
+# Jumping on the Clouds
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Easy-green)
 
@@ -74,52 +74,35 @@ The only thundercloud to avoid is $c[4]$. The game can be won in $3$ jumps:
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-08T14:18:10.041Z  
+**Submitted:** 2026-10-08T14:29:08.891Z  
 
 ```cpp
 #include <bits/stdc++.h>
 using namespace std;
-
 int main()
 {
-    // Fast I/O
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-
-    string s;
-    cin >> s;
-    
-    // FIXED: Changed from 'int' to 'long long' to prevent 1-trillion limit overflow
-    long long n; 
-    cin >> n;
-    
-    long long len = s.length();
-    
-    // Step 1: Count occurrences of 'a' in the single original string
-    long long base_count = 0;
-    for(int i = 0; i < len; i++)
+    int n;
+    cin>>n;
+    vector<int>a(n);
+    for(int i=0;i<n;i++)
     {
-        if(s[i] == 'a')
+        cin>>a[i];
+    }
+    int count=0;
+    for(int i=0;i<n-1;)
+    {
+        if(i+2<n&&a[i+2]==0)
         {
-            base_count++;
+            count++;
+            i+=2;
+        }
+        else 
+        {
+            count++;
+            i+=1;
         }
     }
-    
-    // Step 2: Calculate how many times the full string fits into 'n'
-    long long full_repeats = n / len;
-    long long total_count = full_repeats * base_count;
-    
-    // Step 3: Handle the remaining leftover portion of the string
-    long long leftovers = n % len;
-    for(int i = 0; i < leftovers; i++)
-    {
-        if(s[i] == 'a')
-        {
-            total_count++;
-        }
-    }
-    
-    cout << total_count << "\n";
+    cout<<count;
     return 0;
 }
 
