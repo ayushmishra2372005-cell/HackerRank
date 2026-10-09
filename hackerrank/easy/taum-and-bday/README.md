@@ -1,4 +1,4 @@
-# ACM ICPC Team
+# Taum and B'day
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Easy-green)
 
@@ -60,47 +60,39 @@ $t$ lines, each containing an integer: the minimum amount of units Taum needs to
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-09T14:30:43.466Z  
+**Submitted:** 2026-10-09T15:08:15.024Z  
 
 ```cpp
 #include <bits/stdc++.h>
 using namespace std;
+
 int main()
 {
-    int n,m;
-    cin>>n>>m;
-    vector<string> a(n);
-    for(int i=0;i<n;i++)
+    // Fast I/O to handle heavy test files
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int t;
+    if (!(cin >> t)) return 0;
+    
+    while (t--)
     {
-        cin>>a[i];
+        long long b, w, bc, wc, z;
+        cin >> b >> w >> bc >> wc >> z;
+        
+        // Find the absolute cheapest way to buy ONE black gift
+        // It's either the normal price (bc) OR buying white and converting (wc + z)
+        long long actual_bc = min(bc, wc + z);
+        
+        // Find the absolute cheapest way to buy ONE white gift
+        // It's either the normal price (wc) OR buying black and converting (bc + z)
+        long long actual_wc = min(wc, bc + z);
+        
+        // Total cost calculation
+        long long total_cost = (b * actual_bc) + (w * actual_wc);
+        
+        cout << total_cost << "\n";
     }
-    int max=0;
-    int team=0;
-    for(int i=0;i<n;i++)
-    {
-        for(int j=i;j<n;j++)
-        {
-            int c=0;
-            for(int k=0;k<m;k++)
-            {
-                if(a[i][k]=='1'||a[j][k]=='1')
-                {
-                    c++;
-                }
-            }
-            if(c>max)
-            {
-                max=c;
-                team=1;
-            }
-            else if(c==max&&max>0)
-            {
-                team++;
-            }
-        }
-    }
-    cout<<max<<endl;
-    cout<<team<<endl;
     return 0;
 }
 
