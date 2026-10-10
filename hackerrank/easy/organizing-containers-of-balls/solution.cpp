@@ -3,30 +3,49 @@ using namespace std;
 
 int main()
 {
-    // Fast I/O to handle heavy test files
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-
-    int t;
-    if (!(cin >> t)) return 0;
-    
-    while (t--)
+    int q;
+    cin >> q;
+    for(int k = 0; k < q; k++)
     {
-        long long b, w, bc, wc, z;
-        cin >> b >> w >> bc >> wc >> z;
+        int n;
+        cin >> n;
+        vector<vector<long long>> a(n, vector<long long>(n));
+        vector<long long> row(n, 0); 
+        vector<long long> col(n, 0);
+        for(int i = 0; i < n; i++)
+        {
+            for(int j = 0; j < n; j++)
+            {
+                cin >> a[i][j];
+                
+                row[i] += a[i][j]; // Accumulate row sum (Container Capacity)
+                col[j] += a[i][j]; // Accumulate column sum (Ball Type Quantity)
+            }
+        }
         
-        // Find the absolute cheapest way to buy ONE black gift
-        // It's either the normal price (bc) OR buying white and converting (wc + z)
-        long long actual_bc = min(bc, wc + z);
+        // Step 2: Sort both tracking arrays so we can easily compare them 
+        sort(row.begin(), row.end());
+        sort(col.begin(), col.end());
         
-        // Find the absolute cheapest way to buy ONE white gift
-        // It's either the normal price (wc) OR buying black and converting (bc + z)
-        long long actual_wc = min(wc, bc + z);
+        // Step 3: Check if both sorted arrays match element-for-element
+        bool possible = true;
+        for(int i = 0; i < n; i++)
+        {
+            if(row[i] != col[i])
+            {
+                possible = false;
+                break;
+            }
+        }
         
-        // Total cost calculation
-        long long total_cost = (b * actual_bc) + (w * actual_wc);
-        
-        cout << total_cost << "\n";
+        if(possible)
+        {
+            cout << "Possible" << endl;
+        }
+        else
+        {
+            cout << "Impossible" << endl;
+        }
     }
     return 0;
 }
