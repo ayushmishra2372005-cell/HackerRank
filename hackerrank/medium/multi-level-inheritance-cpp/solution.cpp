@@ -4,27 +4,35 @@
 #include <iostream>
 #include <algorithm>
 using namespace std;
-class triangle
+class A
 {
-    public:
-    void Triangle()
+    public: 
+    void eq()
     {
-        cout<<"I am a triangle"<<endl;
-    }
-};
-class isosceles : public triangle
-{
-    public:
-    void isc()
-    {
-        cout<<"I am an isosceles triangle"<<endl;
-        cout<<"In an isosceles triangle two sides are equal"<<endl;
+        cout<<"I am an equilateral triangle"<<endl;
     }  
 };
-int main() 
+class B: public A
 {
-    isosceles a;
-    a.isc();
-    a.Triangle();
+    public:
+    void is()
+    {
+        cout<<"I am an isosceles triangle"<<endl;
+    }
+};
+class C: public B
+{
+    public:
+    void t()
+    {
+        cout<<"I am a triangle";
+    }
+};
+int main() 
+{    
+    C obj;
+    obj.eq();
+    obj.is();
+    obj.t();
     return 0;
 }
