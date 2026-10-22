@@ -1,4 +1,4 @@
-# Class
+# Structs
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Easy-green)
 
@@ -39,7 +39,7 @@ The locked code in the editor will determine how many scores are larger than Kri
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-12T14:41:22.756Z  
+**Submitted:** 2026-10-22T17:40:36.726Z  
 
 ```cpp
 #include <cmath>
@@ -48,34 +48,14 @@ The locked code in the editor will determine how many scores are larger than Kri
 #include <iostream>
 #include <algorithm>
 using namespace std;
-class A
-{
-    public:
-    int age;
-    string name,lastname;
-    int s;
-    void setage()
-    {
-        cin>>age>>name>>lastname>>s;
-    }
-    void dis()
-    {
-        cout<<age<<endl;
-        cout<<lastname<<", "<<name<<endl;
-        cout<<s<<endl;
-        cout<<endl;
-    }
-    void dis1()
-    {
-        cout<<age<<","<<name<<","<<lastname<<","<<s;
-    }
-};
+
+
 int main() 
 {
-    A obj;
-    obj.setage();
-    obj.dis();
-    obj.dis1();
+    int age,n;
+    string s,l;
+    cin>>age>>s>>l>>n;
+    cout<<age<<" "<<s<<" "<<l<<" "<<n;
     return 0;
 }
 
