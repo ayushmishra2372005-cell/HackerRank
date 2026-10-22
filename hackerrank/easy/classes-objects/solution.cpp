@@ -4,33 +4,13 @@
 #include <iostream>
 #include <algorithm>
 using namespace std;
-class A
-{
-    public:
-    int age;
-    string name,lastname;
-    int s;
-    void setage()
-    {
-        cin>>age>>name>>lastname>>s;
-    }
-    void dis()
-    {
-        cout<<age<<endl;
-        cout<<lastname<<", "<<name<<endl;
-        cout<<s<<endl;
-        cout<<endl;
-    }
-    void dis1()
-    {
-        cout<<age<<","<<name<<","<<lastname<<","<<s;
-    }
-};
+
+
 int main() 
 {
-    A obj;
-    obj.setage();
-    obj.dis();
-    obj.dis1();
+    int age,n;
+    string s,l;
+    cin>>age>>s>>l>>n;
+    cout<<age<<" "<<s<<" "<<l<<" "<<n;
     return 0;
 }
