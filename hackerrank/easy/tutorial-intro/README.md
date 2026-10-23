@@ -114,7 +114,7 @@ $V = 4$. The value $4$ is the $2^{nd}$ element in the array.  Its index is $1$ s
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-23T16:39:45.077Z  
+**Submitted:** 2026-10-23T16:42:08.483Z  
 
 ```cpp
 #include <bits/stdc++.h>
@@ -123,20 +123,23 @@ int main()
 {
     int v;
     int n;
+    cin>>v;
+    cin>>n;
     vector<int>a(n);
     for(int i=0;i<n;i++)
     {
         cin>>a[i];
     }
-    int b;
+    int b=0;
     for(int i=0;i<n;i++)
     {
         if(a[i]==v)
         {
             b=i;
+            break;
         }
     }
-    cout<<b+1;
+    cout<<b;
     return 0;
 }
 
